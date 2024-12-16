@@ -1,0 +1,22 @@
+p{
+    font-size: larger;
+    color:red;
+}
+body{
+    background-image: url("eg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+a{
+    
+    text-decoration: none;
+    font-size: 30px;
+    border:10px;
+    color:white;
+}
+.text-center{
+    color: whitesmoke;
+}
