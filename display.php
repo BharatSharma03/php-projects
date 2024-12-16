@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Some error: " . $conn->connect_error);
 }
 
- if( isset($_POST['btn']) && $_POST['btn'] == "logout"){ // use gpt for array_key exist function beacuseu it throw the error when i use directly
+ if( isset($_POST['btn']) && $_POST['btn'] == "logout"){ 
     session_destroy(); // Destroy session
     header("Location: login.php");
     exit();
@@ -37,6 +37,7 @@ if ($conn->connect_error) {
 </head>
 <body>
   <?php require 'partials/_nav.php' ?>
+
   <div class="container">
     <h1 class="text-center">User Information</h1>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
