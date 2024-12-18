@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    
+    <link href="partials/css/login_footer.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php require 'partials/_nav.php'; ?>
+    <?php require 'partials/bars/_nav.php'; ?>
    
     <div class="container">
         <h1 class="text-center">Login to our website</h1>
@@ -25,8 +25,13 @@
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
             </div>
-            <button type="submit" class="btn btn-primary" name="btn" value="set">Login</button>
+            <a  name="forget" href="forget.php">forget password</a>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary" name="btn" value="set" styl>Login</button>
+           
         </form>
+        
 
         <!-- PHP Logic -->
         <?php
@@ -75,6 +80,7 @@
         $conn->close();
         ?>
     </div>
+<?php require 'partials/bars/footer.php';?>   
 </body>
 
 </html>

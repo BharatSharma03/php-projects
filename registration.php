@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registration</title>
+    <link href="partials/css/register.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php require 'partials/_nav.php';?>
+    <?php require 'partials/bars/_nav.php';?>
 
     <div class="container">
         <h1 class="text-center">Register to our website</h1>
@@ -84,6 +85,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <?php require 'partials/bars/footer.php';?>   
 </body>
 
 </html>

@@ -13,11 +13,6 @@ if ($conn->connect_error) {
     die("Some error: " . $conn->connect_error);
 }
 
- if( isset($_POST['btn']) && $_POST['btn'] == "logout"){ 
-    session_destroy(); // Destroy session
-    header("Location: login.php");
-    exit();
-} 
 
 
 
@@ -55,10 +50,13 @@ if ($conn->connect_error) {
               <tr><td>" . $row['name'] . "</td></tr>
               <tr><td>" . $row['email'] . "</td></tr>
             </table>";
+            echo "<div class='alert alert-success mt-3'>Redirecting...to login page in 5 sec</div>";
+            header("Refresh: 5; URL=login.php");
+            exit();
         }
         ?>
         <br>
-        <button type="submit" name="btn" value="logout" class="btn btn-primary">Logout</button>
+        <!-- <button type="submit" name="btn" value="logout" class="btn btn-primary">Logout</button> -->
         </form>
   </div>
 </body>
