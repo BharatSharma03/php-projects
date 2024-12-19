@@ -11,7 +11,7 @@
 
 <body>
     <?php require 'partials/bars/_nav.php'; ?>
-   
+
     <div class="container">
         <h1 class="text-center">Login to our website</h1>
 
@@ -25,16 +25,15 @@
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
             </div>
-            <a  name="forget" href="forget.php">forget password</a>
-            <br>
-            <br>
-            <button type="submit" class="btn btn-primary" name="btn" value="set" styl>Login</button>
-           
+            <!-- <a name="forget" href="forget.php">Forget password</a> -->
+            <br><br>
+            <button type="submit" class="btn btn-primary" name="btn" value="set">Login</button>
         </form>
-        
 
         <!-- PHP Logic -->
         <?php
+        // Start the session to use session variables for login
+        session_start();
 
         $host = "localhost";
         $username = "root";
@@ -50,22 +49,31 @@
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn']) && $_POST['btn'] === 'set') {
             $email = htmlspecialchars(trim($_POST['email']));
             $password = $_POST['password'];
-            // Prepared statement to fetch hashed password
-            $stmt = $conn->prepare("SELECT password FROM user WHERE email = ?");
+
+            // Prepared statement to fetch the hashed password
+            $stmt = $conn->prepare("SELECT password, role FROM user WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
             $stmt->store_result();
 
             if ($stmt->num_rows > 0) {
-                $stmt->bind_result($hashedPassword);
+                $stmt->bind_result($hashedPassword, $role);
                 $stmt->fetch();
 
                 // Verify password
                 if (password_verify($password, $hashedPassword)) {
-                    session_start();
+                    // Store user session details
                     $_SESSION['email'] = $email;
+                    $_SESSION['role'] = $role;
+
                     echo "<div class='alert alert-success mt-3'>Login successful! Redirecting...</div>";
-                    header("Refresh: 1; URL=display.php");
+
+                    // Redirect based on role
+                    if ($role === "admin") {
+                        header("Refresh: 1; URL=admin_dashboard.php"); // Redirect to admin dashboard
+                    } else {
+                        header("Refresh: 1; URL=display.php"); // Redirect to user dashboard
+                    }
                     exit();
                 } else {
                     echo "<div class='alert alert-danger mt-3'>Invalid email or password</div>";
@@ -80,7 +88,8 @@
         $conn->close();
         ?>
     </div>
-<?php require 'partials/bars/footer.php';?>   
+
+    <?php require 'partials/bars/footer.php'; ?>
 </body>
 
 </html>

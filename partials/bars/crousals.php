@@ -37,14 +37,26 @@
       </div>
       <!-- Second Slide -->
       <div class="carousel-item" data-bs-interval="2000">
+      <div class="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+          <h1 class="text-center text-light">Welcome to our Website</h1>
+          <p class="text-center text-light">Your journey begins here.</p>
+        </div>
         <img src="partials/images_crousal/slide1.jpg" class="d-block w-100" alt="Second Slide">
       </div>
       <!-- Third Slide -->
       <div class="carousel-item" data-bs-interval="2000">
+      <div class="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+          <h1 class="text-center text-light">Welcome to our Website</h1>
+          <p class="text-center text-light">Your journey begins here.</p>
+        </div>
         <img src="partials/images_crousal/robot.jpg" class="d-block w-100" alt="Third Slide">
       </div>
       <!-- Fourth Slide -->
       <div class="carousel-item" data-bs-interval="2000">
+      <div class="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+          <h1 class="text-center text-light">Welcome to our Website</h1>
+          <p class="text-center text-light">Your journey begins here.</p>
+        </div>
         <img src="partials/images_crousal/demo.jpg" class="d-block w-100" alt="Fourth Slide">
       </div>
     </div>

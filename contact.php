@@ -50,7 +50,7 @@
             $message = htmlspecialchars(trim($_POST['message']));
 
             // Insert the data into the database
-            $stmt = $conn->prepare("INSERT INTO contact_info (name, email, message) VALUES (?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO contact_info (name, email, mesage) VALUES (?, ?, ?)");
             $stmt->bind_param("sss", $name, $email, $message);
 
             if ($stmt->execute()) {
