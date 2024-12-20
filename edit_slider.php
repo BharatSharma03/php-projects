@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 
 $id = $_GET['id'];  // Assuming you're getting the ID from a POST request
 
-$stmt = $conn->prepare("SELECT id, name, email, role FROM user WHERE id = ?");
+$stmt = $conn->prepare("SELECT id, title, description, path FROM slider WHERE id = ?");
 $stmt->bind_param("i", $id);  // Bind the user input ID parameter
 $stmt->execute();
 $result = $stmt->get_result();
@@ -40,26 +40,26 @@ $conn->close();
   <body>
     <div class="container">
       <nav>
-        <a href="user_manage.php">Back</a>
+        <a href="slider_manage.php">Back</a>
       </nav>
     </div>
 
-    <form action="update_user.php" method="post">
+    <form action="update_slider.php" method="post">
         <div class="mb-3">
             <label for="id" class="form-label">ID</label>
             <input type="hidden" name="id" value="<?php echo $user['id'];?>">
         </div>
         <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" value="<?php echo $user['name'];?>">
+            <label for="title" class="form-label">title</label>
+            <input type="text" name="title" value="<?php echo $user['title'];?>">
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" name="email" value="<?php echo $user['email'];?>">
+            <label for="description" class="form-label">description</label>
+            <input type="text" name="description" value="<?php echo $user['description'];?>">
         </div>
         <div class="mb-3">
-            <label for="role" class="form-label">Role</label>
-            <input type="text" name="role" value="<?php echo $user['role'];?>">
+            <label for="path" class="form-label">path</label>
+            <input type="file" name="file" value="<?php echo $user['path'];?>">
         </div>
         <button type="submit" name="btn" value="set" class="btn btn-primary">Save</button>
     </form>

@@ -15,54 +15,46 @@
     </div>
 
     <form action="" method="post">
-      <?php
-        session_start();
-        $host = "localhost";
-        $username = "root";
-        $password = "";
-        $db = "users";
-        $conn = new mysqli($host, $username, $password, $db);
+    <?php
+session_start();
+$host = "localhost";
+$username = "root";
+$password = "";
+$db = "users";
+$conn = new mysqli($host, $username, $password, $db);
 
-        if ($conn->connect_error) {
-          die("<div class='alert alert-danger mt-3'>Connection failed: " . $conn->connect_error . "</div>");
-        }
+if ($conn->connect_error) {
+    die("<div class='alert alert-danger mt-3'>Connection failed: " . $conn->connect_error . "</div>");
+}
 
-        // Fetch user data for editing
-        if (isset($_GET['id'])) {
-          $id = $_GET['id'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $role = $_POST['role'];
 
-          $stmt = $conn->prepare("SELECT id, name, email, role FROM user WHERE id = ?");
-          $stmt->bind_param("i", $id);  // Bind the user ID parameter
-          $stmt->execute();
-          $result = $stmt->get_result();
-          $user = $result->fetch_assoc();
+    $stmt = $conn->prepare("UPDATE user SET name=?, email=?, role=? WHERE id=?");
+    $stmt->bind_param("sssi", $name, $email, $role, $id);
 
-          // Check if user data is found
-          if (!$user) {
-            echo "<div class='alert alert-warning mt-3'>No user found with the provided ID.</div>";
-          }
-        }
-
-        // Update the user data
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          $id = $_POST['id'];
-          $name = $_POST['name'];
-          $email = $_POST['email'];
-          $role = $_POST['role'];
-
-          $stmt = $conn->prepare("UPDATE user SET name = ?, email = ?, role = ? WHERE id = ?");
-          $stmt->bind_param("sssi", $name, $email, $role, $id);  // Bind parameters
-          
-          if ($stmt->execute()) {
-            echo "<div class='alert alert-success mt-3'>Update successful!</div>";
-            header("Location: user_manage.php");  // Redirect to user management page
+    if ($stmt->execute()) {
+        echo "<div class='alert alert-success mt-3'>Update successful!</div>";
+        if (headers_sent()) {
+            echo "<script>window.location.href='user_manage.php';</script>";
+        } else {
+            header("Location: user_manage.php");
             exit();
-          } else {
-            echo "<div class='alert alert-danger mt-3'>Update failed. Please try again.</div>";
-          }
         }
+    } else {
+        echo "<div class='alert alert-danger mt-3'>Update failed!</div>";
+    }
 
-        // Close the statement and the connection
-        $stmt->close();
-        $conn->close();
-      ?>
+    $stmt->close();
+}
+$conn->close();
+?>
+
+    </form>
+
+    <?php require 'partials/bars/footer.php'; ?>
+  </body>
+</html>
