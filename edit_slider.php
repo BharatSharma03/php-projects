@@ -41,7 +41,7 @@ $conn->close();
   <body>
     <div class="container">
       <nav>
-        <a href="slide.php">Back</a>
+        <a href="slider.php">Back</a>
       </nav>
     </div>
     <form action="update_slider.php" method="post" enctype="multipart/form-data">
