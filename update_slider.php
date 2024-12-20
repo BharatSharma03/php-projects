@@ -39,9 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $directory = "partials/images_crousal/";  // Path to the images folder
 
         // Check if the directory exists, create it if not
-        if (!is_dir($directory)) {
-            mkdir($directory, 0777, true); // Create directory if it doesn't exist
-        }
+        // if (!is_dir($directory)) {
+        //     mkdir($directory, 0777, true); // Create directory if it doesn't exist
+        // }
 
         $filename = basename($_FILES['file']['name']);
         // Add a timestamp to the filename to avoid conflicts
