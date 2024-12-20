@@ -9,10 +9,10 @@
   </head>
   <body>
   
-  
-  
-  <?php require 'partials/bars/sidebar.php'?>
-  <?php require 'partials/bars/_nav.php'?>
+    
+    <?php require 'partials/bars/sidebar.php'?>
+    <!-- ?php require 'partials/bars/crousals.php'?> -->
+    <?php require 'partials/bars/_nav.php'?>
   
   
   

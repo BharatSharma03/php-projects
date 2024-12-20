@@ -59,7 +59,11 @@ $conn->close();
         </div>
         <div class="mb-3">
             <label for="role" class="form-label">Role</label>
-            <input type="text" name="role" value="<?php echo $user['role'];?>">
+            <select name="role">
+              <option name="role" value="admin" <?php echo ($user['role']=="admin" ? "selcected" :"");?>>admin</option>
+              <option  name="role" value="user" <?php echo ($user['role']=="user" ? "selcected" :"");?>>user</option>
+            </select>
+            <!-- <input type="text" name="role" value="?php echo $user['role'];?>"> -->
         </div>
         <button type="submit" name="btn" value="set" class="btn btn-primary">Save</button>
     </form>

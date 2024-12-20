@@ -23,6 +23,7 @@ if ($result->num_rows > 0) {
     echo "<div class='alert alert-warning mt-3'>No data found</div>";
 }
 
+
 // Close the statement and the connection
 $stmt->close();
 $conn->close();
@@ -40,29 +41,31 @@ $conn->close();
   <body>
     <div class="container">
       <nav>
-        <a href="slider_manage.php">Back</a>
+        <a href="slide.php">Back</a>
       </nav>
     </div>
+    <form action="update_slider.php" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="id" class="form-label">ID</label>
+        <input type="hidden" name="id" value="<?php echo $user['id'];?>">
+    </div>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" value="<?php echo $user['title'];?>">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" name="description" value="<?php echo $user['description'];?>">
+    </div>
+    <div class="mb-3">
+        <label for="path" class="form-label">Path</label>
+        <input type="file" name="file" class="form-control">
+        <p>Current Image: <img src="<?php echo $user['path']; ?>" alt="Current Slider Image" width="100"></p>
+    </div>
 
-    <form action="update_slider.php" method="post">
-        <div class="mb-3">
-            <label for="id" class="form-label">ID</label>
-            <input type="hidden" name="id" value="<?php echo $user['id'];?>">
-        </div>
-        <div class="mb-3">
-            <label for="title" class="form-label">title</label>
-            <input type="text" name="title" value="<?php echo $user['title'];?>">
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">description</label>
-            <input type="text" name="description" value="<?php echo $user['description'];?>">
-        </div>
-        <div class="mb-3">
-            <label for="path" class="form-label">path</label>
-            <input type="file" name="file" value="<?php echo $user['path'];?>">
-        </div>
-        <button type="submit" name="btn" value="set" class="btn btn-primary">Save</button>
-    </form>
+    <button type="submit" name="btn" value="set" class="btn btn-primary">Save</button>
+</form>
+
 
     <?php require 'partials/bars/footer.php'; ?>
   </body>
