@@ -10,6 +10,12 @@ if ($conn->connect_error) {
     die("<div class='alert alert-danger mt-3'>Connection failed: " . $conn->connect_error . "</div>");
 }
 
+if (!isset($_SESSION['logged in']) || $_SESSION['logged in'] !== true) {
+  // If the user is not logged in, redirect to the login page
+  header('Location: login.php');
+  exit;
+}
+
 $id = $_GET['id'];  // Assuming you're getting the ID from a POST request
 
 $stmt = $conn->prepare("SELECT id, title, description, path FROM slider WHERE id = ?");

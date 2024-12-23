@@ -1,5 +1,11 @@
 <?php
 session_start(); // Start session at the top
+if (!isset($_SESSION['logged in']) || $_SESSION['logged in'] !== true) {
+  // If the user is not logged in, redirect to the login page
+  header('Location: login.php');
+  exit;
+}
+
 if(!isset($_SESSION['email'])){
 header("Location: login.php");
 }
