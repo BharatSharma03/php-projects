@@ -19,6 +19,7 @@
   <div class="message">
       <p>Admin Dashboard..!</p>
   </div>
+  
   <?php require 'partials/bars/footer.php'?>
 </body>
 </html>
