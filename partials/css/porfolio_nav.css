@@ -1,0 +1,21 @@
+
+  .header {
+    background-color: black;
+    color: white;
+    padding: 10px 0; /* Optional: Adds spacing to the header */
+  }
+  
+  .header .nav-link {
+    color: white; /* Ensures nav links are visible by default */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .header .nav-link:hover {
+    color: white; /* Changes text color to black on hover */
+    background-color: blue; /* Optional: Highlights with a white background */
+    padding: 5px; /* Optional: Adds spacing for the hover background */
+    border-radius: 5px; /* Optional: Adds rounded edges for the hover effect */
+  }
+  .header a{
+    text-decoration: none;
+  }

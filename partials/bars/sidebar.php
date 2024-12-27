@@ -13,6 +13,9 @@
       <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
       <a href="user_manage.php" target="_parent" class="w3-bar-item w3-button">user manages</a>
       <a href="slider.php" class="w3-bar-item w3-button">manageslider</a>
+      <a href="add_portfolio.php" class="w3-bar-item w3-button">Add portfolio items</a>
+      <a href="manage_portfolio.php" class="w3-bar-item w3-button">Manageportfolio</a>
+      <a href="manage_technologies.php" class="w3-bar-item w3-button">Managetechnologies</a>
       <a href="login.php" class="w3-bar-item w3-button">logout</a>
     </div>
 
