@@ -65,6 +65,7 @@ $conn->close();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
+  <?php require 'partials/bars/_nav.php'; ?>
     <div class="container">
       <nav>
         <a href="manage_technologies.php" style="text-decoration:none;">Back</a>
@@ -94,8 +95,8 @@ $conn->close();
         <div>
             <select name="technology" id="technology" class="form-select">
                 <option value="1">php</option>
-                <option value="2">python</option>
-                <option value="3">java</option>
+                <option value="3">python</option>
+                <option value="2">java</option>
             </select>
         </div>
         </div>

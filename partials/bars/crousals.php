@@ -16,13 +16,7 @@ $result = $conn->query($sql);
 $items = $result->fetch_all(MYSQLI_ASSOC);
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
+<style>
     html, body {
       height: 100%;
       margin: 0;
@@ -38,8 +32,6 @@ $items = $result->fetch_all(MYSQLI_ASSOC);
       width: 100%;
     }
   </style>
-  <title>Full-Page Carousel</title>
-</head>
 <body>
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner" name="sldier">
@@ -77,5 +69,4 @@ $items = $result->fetch_all(MYSQLI_ASSOC);
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
-</html>
+

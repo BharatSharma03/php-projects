@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .footer {
     background-color: red; /* Adjust the color as needed */
     color: white;
     text-align: center;
     padding: 5px 0;
-    position: relative; /* Ensure it stays at the bottom of the content */
     width: 100%;
+    margin-top: auto; /* Pushes footer to the bottom */
 }
 
+
 </style>
-</head>
-<body>
-
-<!-- <h2>Fixed/Sticky Footer Example</h2> -->
-
-
 <div class="footer">
-<p>&copy; 2024 Codedrill Infotech. All rights reserved.</p>
+    <p>&copy; 2025 Codedrill Infotech. All rights reserved.</p>
 </div>
-
-</body>
-</html> 

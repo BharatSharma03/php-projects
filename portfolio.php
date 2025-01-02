@@ -38,18 +38,12 @@ if ($stmt) {
 
 $conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+ <?php require 'partials/bars/_nav.php';?>
+ <title>Portfolio</title>
   <!-- Add Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <?php require 'partials/bars/portfolio_nav.php'; ?>
+  
+ 
+  <?php require 'partials/bars/portfolio_nav.php'; ?>
 
     <div class="container mt-5">
         <div class="row" data-masonry='{"percentPosition": true}'>
@@ -58,17 +52,20 @@ $conn->close();
             // echo "Filter applied: " . htmlspecialchars($name);
             if (!empty($items)) {
                 foreach ($items as $item): 
+                    $id=$item['id'];
                     $imagePath = $item['original_image_path'];
                     $title = htmlspecialchars($item['title']);
                     $description = htmlspecialchars($item['description']);
                     // $filepath = $item['file_path'];
             ?>
             <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card">
+            <a href="details.php?id=<?php echo $id; ?>" style="text-decoration: none;">
+
+                        <div class="card">
                         <img src="<?php echo $imagePath; ?>" class="card-img-top" alt="Portfolio Image">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $title; ?></h5>
-                            <p class="card-text"><?php echo $description; ?></p>
+                            <p class="card-text"><?php echo $description;?></p>
                         </div>
                     </div>
                 </a>
@@ -86,5 +83,5 @@ $conn->close();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Add Masonry JS -->
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
-</body>
-</html>
+
+<?php require 'partials/bars/footer.php'; ?>

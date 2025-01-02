@@ -20,13 +20,13 @@ if (!isset($_SESSION['logged in']) || $_SESSION['logged in'] !== true) {
 
 $id = $_GET['id'];  // Assuming you're getting the ID from the GET request
 
-$stmt = $conn->prepare("SELECT id, title FROM portfolio WHERE id = ?");
+$stmt = $conn->prepare("SELECT id, title ,description FROM portfolio WHERE id = ?");
 $stmt->bind_param("i", $id); // Bind the ID parameter
 $stmt->execute();
 $result = $stmt->get_result();
 
 
-$stmt2 = $conn->prepare("SELECT portfolio_id from FROM portfolio_technologies WHERE id = ?");
+$stmt2 = $conn->prepare("SELECT portfolio_id  FROM portfolio_technologies WHERE id = ?");
 $stmt2->bind_param("i", $id); // Bind the ID parameter
 $stmt2->execute();
 $result2 = $stmt2->get_result();
@@ -51,6 +51,7 @@ $conn->close();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
+  <?php require 'partials/bars/_nav.php'; ?>
     <div class="container">
       <nav>
         <a href="manage_portfolio.php" style="text-decoration:none;">Back</a>

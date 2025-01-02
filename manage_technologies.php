@@ -9,6 +9,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
+  <?php require 'partials/bars/_nav.php'; ?>
     <div class="container">
       <nav>
         <a href="admin_dashboard.php">Back</a>

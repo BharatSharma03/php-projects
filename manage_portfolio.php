@@ -9,6 +9,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
+  <?php require 'partials/bars/_nav.php'; ?>
     <div class="container">
       <nav>
         <a href="admin_dashboard.php">Back</a>
@@ -96,7 +97,6 @@
                       <th>Original Image Path</th>
                       <th>Thumbnail Image Path</th>
                       <th>Actions</th>
-                      <th>Technologies</th>
                     </tr>
                   </thead>
                   <tbody>";
@@ -117,33 +117,33 @@
                       </td>";
 
              // Fetch technologies associated with the current portfolio item using portfolio_id
-$portfolio_id = $row['id'];
+// $portfolio_id = $row['id'];
 
-// Prepare the SQL query with DISTINCT to avoid duplicates
-$stmt2 = $conn->prepare("
-    SELECT DISTINCT t.name 
-    FROM Technologies t
-    INNER JOIN portfolio_technologies pt ON t.id = pt.technology_id
-    WHERE pt.portfolio_id = ?
-");
-$stmt2->bind_param("i", $portfolio_id);
-$stmt2->execute();
-$result2 = $stmt2->get_result();
+// // Prepare the SQL query with DISTINCT to avoid duplicates
+// $stmt2 = $conn->prepare("
+//     SELECT DISTINCT t.name 
+//     FROM Technologies t
+//     INNER JOIN portfolio_technologies pt ON t.id = pt.technology_id
+//     WHERE pt.portfolio_id = ?
+// ");
+// $stmt2->bind_param("i", $portfolio_id);
+// $stmt2->execute();
+// $result2 = $stmt2->get_result();
 
-// Store technologies in an array
-$technologies = [];
-while ($tech = $result2->fetch_assoc()) {
-    $technologies[] = htmlspecialchars($tech['name']); // Escape for safety
-}
+// // Store technologies in an array
+// $technologies = [];
+// while ($tech = $result2->fetch_assoc()) {
+//     $technologies[] = htmlspecialchars($tech['name']); // Escape for safety
+// }
 
-// Display technologies in the table
-echo "<td>";
-foreach ($technologies as $technology) {
-    echo $technology . "<br>"; // Display each technology on a new line
-}
-echo "</td>";
+// // Display technologies in the table
+// echo "<td>";
+// foreach ($technologies as $technology) {
+//     echo $technology . "<br>"; // Display each technology on a new line
+// }
+// echo "</td>";
 
-$stmt2->close();
+// $stmt2->close();
 
 
               

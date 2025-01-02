@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio_nav</title>
-    <link rel="stylesheet" href="partials/css/porfolio_nav.css">
-</head>
-<body>
+<link rel="stylesheet" href="partials/css/porfolio_nav.css">
+
 <header class="header">
   <ul class="nav justify-content-center">
     <li class="nav-item">
@@ -30,5 +23,3 @@
   </ul>
 </header>
 
-</body>
-</html>
