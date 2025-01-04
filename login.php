@@ -57,38 +57,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn']) && $_POST['btn
 // Close the database connection
 $conn->close();
 ?>
+ <?php 
+ $title="Login";
+ require 'partials/bars/_nav.php'; ?>
 
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link href="partials/css/login_footer.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <?php require 'partials/bars/_nav.php'; ?>
-
-    <div class="container">
-        <h1 class="text-center">Login to our website</h1>
+<div class=" bg-light" style="width:auto; padding: 10px; border-radius: 10px; margin:40px auto ;>">
+        <h1 class="text-center" style="padding:30px;">Login to our website</h1>
 
         <!-- Form -->
-        <form action="" method="post">
-            <div class="mb-3">
+        <form action="" method="post"  class="mx-auto p-3 border rounded" style="width:auto;">
+            <div class="m-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" name="email" class="form-control" id="exampleInputEmail1" required>
             </div>
-            <div class="mb-3">
+            <div class="m-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
             </div>
-            <br><br>
+            <br>
+            <div class="text-center">
             <button type="submit" class="btn btn-primary" name="btn" value="set">Login</button>
+            </div><br>
+            
         </form>
     </div>
 
     <?php require 'partials/bars/footer.php'; ?>
-</body>
-</html>

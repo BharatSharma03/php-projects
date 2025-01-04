@@ -1,13 +1,7 @@
-
-    <title>User Management</title>
-    <?php require 'partials/bars/_nav.php'; ?>
-    <div class="container">
-      <nav>
-        <a href="admin_dashboard.php">Back</a>
-      </nav>
-    </div>
-
-    <?php
+  <?php 
+  $title = "User Management";
+  require 'partials/bars/_nav.php'; ?>
+<?php
       session_start();
       $host = "localhost";
       $username = "root";
@@ -52,42 +46,54 @@
       $stmt->execute();
       $result = $stmt->get_result();
       $data = $result->fetch_all(MYSQLI_ASSOC);
-
+      
+    
       // Display data in a table
       if (count($data) > 0) {
-        echo "<table class='table table-bordered mt-3'>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
-                  <th>Actions</th>
-                </tr>";
-
+        echo "<div class='wrapper' style='margin:70px;'>
+                <div class='table-responsive'>
+                    <table class='table table-bordered m-3'>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>";
+    
         foreach ($data as $row) {
-          echo "<tr>
-                  <td>" . $row['id'] . "</td>
-                  <td>" . $row['name'] . "</td>
-                  <td>" . $row['email'] . "</td>
-                  <td>" . $row['role'] . "</td>
-                  <td>
-                    <a href='edit_user.php?id=" . $row['id'] . "' target='_parent' class='btn btn-primary'>Edit</a>
-                    <form action='' method='POST' style='display:inline;'>
-                      <input type='hidden' name='delete_id' value='" . $row['id'] . "'>
-                      <button type='submit' class='btn btn-danger'>Delete</button>
-                    </form>
-                  </td>
-                </tr>";
+            echo "<tr>
+                    <td>" . $row['id'] . "</td>
+                    <td>" . $row['name'] . "</td>
+                    <td>" . $row['email'] . "</td>
+                    <td>" . $row['role'] . "</td>
+                    <td>
+                        <a href='edit_user.php?id=" . $row['id'] . "' target='_parent' class='btn btn-primary'>Edit</a>
+                        <form action='' method='POST' style='display:inline;'>
+                            <input type='hidden' name='delete_id' value='" . $row['id'] . "'>
+                            <button type='submit' class='btn btn-danger'>Delete</button>
+                        </form>
+                    </td>
+                  </tr>";
         }
-
-        echo "</table>";
-      } else {
+    
+        echo "</tbody></table></div></div>";
+    }
+    
+   else {
         echo "<div class='alert alert-warning mt-3'>No data found</div>";
       }
+     
 
       $stmt->close();
       $conn->close();
     ?>
+    <div class="text-center"><span>
+      <a href="admin_dashboard.php" class="btn btn-primary">Back to Dashboard</a>
+    </span></div>
     
     <?php require 'partials/bars/footer.php'; ?>
 

@@ -25,7 +25,7 @@ if($result->num_rows > 0){
     $row= $result->fetch_assoc();
     $id=$row['id'];
     $description=$row['description'];
-    $title=$row['title'];
+    $titles=$row['title'];
     $original_image_path=$row['original_image_path'];
 }
 else{
@@ -33,26 +33,18 @@ else{
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Document</title>
-</head>
-<body style="background-color:rgb(192, 231, 234);">
-<?php require 'partials/bars/_nav.php'?>
-<div class="container mt-5">
+<?php 
+$title = "Portfolio Details";
+require 'partials/bars/_nav.php'?>
+<div class="text-center" style="width: auto; padding: 10px; border-radius: 10px; ">
         <div class="card">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center; font-weight: bold;"><?php echo $title; ?></h5>
+            <div class="card-body" style="width: auto; padding: 10px; border-radius: 10px; margin:40px auto ;">
+                <h5 class="card-title" style="text-align: center; font-weight: bold;"><?php echo $titles; ?></h5>
                 <p class="card-text" style="text-align: center; font-weight: bold;"><?php echo $description; ?></p>
-                <img src="<?php echo $original_image_path; ?>" class="card-img-top" alt="Portfolio Image">
+                <img src="<?php echo $original_image_path; ?>" class="card-img-top"  alt="Portfolio Image">
 
             </div>
         </div>
     </div>
     <?php require 'partials/bars/footer.php'?>
-</body>
-</html>
+

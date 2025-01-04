@@ -7,4 +7,9 @@
      /* background-color: blue; */
      color: black;
  }
- 
+ .form-wraper {
+    max-width: 700px;
+    margin: 25px auto 0;
+    background-color: #f5f5f5;
+    padding: 20px;
+}

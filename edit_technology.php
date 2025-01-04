@@ -54,42 +54,30 @@ $tech_stmt->close();
 $stmt->close();
 $conn->close();
 ?>
+<?php 
+$title="edit technology";
+require 'partials/bars/_nav.php'; ?>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Portfolio</title>
-    <link href="partials/css/user_manage.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-  <?php require 'partials/bars/_nav.php'; ?>
-    <div class="container">
-      <nav>
-        <a href="manage_technologies.php" style="text-decoration:none;">Back</a>
-      </nav>
-    </div>
-    
-    <form action="update_technology.php" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
+    <div class="bg-light"  style="margin:70px;  padding: 10px;">
+    <form action="update_technology.php" method="post" enctype="multipart/form-data" >
+        <div class="wrap" style="margin:0 auto">
+        <div class="m-3">
             <input type="hidden" name="id" value="<?php echo $user['id'];?>">
         </div>
         
-        <div class="mb-3">
+        <div class="m-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" name="title" id= "title" value="<?php echo $user['title'];?>" require class="form-control">
         </div>
         
-        <div class="mb-3">
+        <div class="m-3">
             <label for="description" class="form-label">Description</label>
             <input type="text" name="description" id="description" value="<?php echo $user['description'];?>" required class="form-control">
         </div>
         
        
 
-        <div class="mb-3">
+        <div class="m-3">
             <label for="technologies" class="form-label">Technologies</label>
             
         <div>
@@ -101,9 +89,17 @@ $conn->close();
         </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">UPDATE TECHNOLOGY</button>
+        <button type="submit" class="btn btn-primary" class="text-center">UPDATE TECHNOLOGY</button>
     </form>
+        </div>
+       
+    </div>
+    <br>
+    
+    <div class="text-center">
+    <a href="manage_portfolio.php" class="btn btn-secondary">Back to manage technology</a>
+</div>
+<br>
+
 
     <?php require 'partials/bars/footer.php';?>
-  </body>
-</html>

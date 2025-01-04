@@ -1,6 +1,7 @@
 <?php
 // Get the current page's filename
 $current_page = basename($_SERVER['PHP_SELF']);
+$page_title =isset($title) ? $title : 'home';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
   <link rel="icon" href="path-to-your-favicon.ico">
   
   <!-- Title of the Page -->
-  <title>Header Example</title>
+  <title><?php echo htmlspecialchars($page_title);?></title>
 
   <!-- Include Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,6 +30,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
       color: white;
       font-weight: bold;
     }
+    .navbar-nav .nav-item {
+  margin-right: 15px; /* Adjust the value as needed */
+  }
+
 
     .nav-link:hover i, .nav-link:hover {
       color: rgb(255, 0, 0);
@@ -88,5 +93,4 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
   <!-- Include Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+

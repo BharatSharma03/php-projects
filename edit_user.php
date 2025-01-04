@@ -32,47 +32,44 @@ if ($result->num_rows > 0) {
 $stmt->close();
 $conn->close();
 ?>
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>edit_user</title>
-    <link href="partials/css/user_manage.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-  <?php require 'partials/bars/_nav.php'; ?>
-    <div class="container">
-      <nav>
-        <a href="user_manage.php">Back</a>
-      </nav>
-    </div>
-
-    <form action="update_user.php" method="post">
-        <div class="mb-3">
+  <?php
+  $title = "Edit User";
+   require 'partials/bars/_nav.php'; ?>
+    
+<div class="bg-light" style="margin: 20px; padding: 10px;">
+    <form action="update_user.php" method="post" class="mx-auto p-4 border rounded" style="width: 90%; max-width: 800px;">
+        <div class="m-3">
             <label for="id" class="form-label">ID</label>
             <input type="hidden" name="id" value="<?php echo $user['id'];?>">
         </div>
-        <div class="mb-3">
+        <div class="m-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" value="<?php echo $user['name'];?>">
+            <input type="text" name="name" value="<?php echo $user['name'];?>" class="form-control">
         </div>
-        <div class="mb-3">
+        <div class="m-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" name="email" value="<?php echo $user['email'];?>">
+            <input type="email" name="email" value="<?php echo $user['email'];?>" class="form-control">
         </div>
-        <div class="mb-3">
+        <div class="m-3">
             <label for="role" class="form-label">Role</label>
-            <select name="role">
-              <option name="role" value="admin" <?php echo ($user['role']=="admin" ? "selcected" :"");?>>admin</option>
-              <option  name="role" value="user" <?php echo ($user['role']=="user" ? "selcected" :"");?>>user</option>
+            <select name="role" class="form-select">
+                <option value="admin" <?php echo ($user['role']=="admin" ? "selected" : "");?>>admin</option>
+                <option value="user" <?php echo ($user['role']=="user" ? "selected" : "");?>>user</option>
             </select>
-            <!-- <input type="text" name="role" value="?php echo $user['role'];?>"> -->
         </div>
-        <button type="submit" name="btn" value="set" class="btn btn-primary">Save</button>
+        <div class="text-center m-3">
+            <button type="submit" name="btn" value="set" class="btn btn-primary">Save</button>
+        </div>
     </form>
+</div>
+
+<br>
+
+<div class="text-center">
+    <a href="user_manage.php" class="btn btn-secondary">Back to manage user</a>
+</div>
+<br>
+
 
     <?php require 'partials/bars/footer.php'; ?>
   </body>

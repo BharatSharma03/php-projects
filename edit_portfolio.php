@@ -40,24 +40,10 @@ if ($result->num_rows > 0) {
 $stmt->close();
 $conn->close();
 ?>
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Portfolio</title>
-    <link href="partials/css/user_manage.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-  <?php require 'partials/bars/_nav.php'; ?>
-    <div class="container">
-      <nav>
-        <a href="manage_portfolio.php" style="text-decoration:none;">Back</a>
-      </nav>
-    </div>
-    
+<?php
+$title="edit portfolio";
+require 'partials/bars/_nav.php'; ?>
+  <div class="wrapper" style="margin:20px 150px; padding:20px">
     <form action="update_portfolio.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="id" class="form-label">ID</label>
@@ -81,10 +67,19 @@ $conn->close();
                 <option value="java">java</option>
             </select>
         </div>
+        <br>
 
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 
+    <br>
+  </div>    
+   
+
+<div class="text-center">
+    <a href="manage_portfolio.php" class="btn btn-secondary">Back to manage slider</a>
+</div>
+<br> 
     <?php require 'partials/bars/footer.php';?>
   </body>
 </html>

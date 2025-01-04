@@ -19,24 +19,11 @@ if (!isset($_SESSION['logged in']) || $_SESSION['logged in'] !== true) {
 }
 ?>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Portfolio</title>
-    <link href="partials/css/user_manage.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-  <?php require 'partials/bars/_nav.php'; ?>
-    <div class="container">
-      <nav>
-        <a href="admin_dashboard.php" style="text-decoration:none;">Back</a>
-      </nav>
-    </div>
-    
-    <form action="add_portfolio_item.php" method="post" enctype="multipart/form-data">
+  <?php 
+  $title = "Add Portfolio Item";
+  require 'partials/bars/_nav.php'; ?>
+    <div class="bg-light" style="margin-top:20px;">
+    <form action="add_portfolio_item.php" method="post" enctype="multipart/form-data"  class="mx-auto p-4 border rounded" style="width: 90%; max-width: 800px;">
         
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -70,7 +57,15 @@ if (!isset($_SESSION['logged in']) || $_SESSION['logged in'] !== true) {
         <br>
         <button type="submit" class="btn btn-primary">Add</button>
     </form>
+    </div>
+    <br>
+
+    
+    
+<div class="text-center">
+    <a href="admin_dashboard.php" class="btn btn-secondary">Back to dashboard</a>
+</div>
+<br>
 
     <?php require 'partials/bars/footer.php';?>
-  </body>
-</html>
+

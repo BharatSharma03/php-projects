@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Enhanced Sidebar</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         /* Custom styles for the sidebar items */
         .w3-sidebar {
@@ -26,8 +23,7 @@
             color: white;
         }
     </style>
-</head>
-<body>
+
 
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
@@ -61,5 +57,3 @@
     }
 </script>
 
-</body>
-</html>

@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>User Management</title>
-    <link href="partials/css/user_manage.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-  <?php require 'partials/bars/_nav.php'; ?>
-    <div class="container">
-      <nav>
-        <a href="admin_dashboard.php">Back</a>
-      </nav>
-    </div>
-
-    <form action="" method="post">
+  <?php 
+  $title = "Manage Portfolio";
+  require 'partials/bars/_nav.php'; ?>
+<form action="" method="post">
       <?php
         session_start();
         $host = "localhost";
@@ -88,7 +73,9 @@
 
         // Display data in a table
         if (count($data) > 0) {
-          echo "<table class='table table-bordered mt-3'>
+          echo "<div class='wrapper' style='margin:50px;'>
+                <div class='table-responsive'>
+                 <table class='table table-bordered mt-3'>
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -116,40 +103,11 @@
                         </form>
                       </td>";
 
-             // Fetch technologies associated with the current portfolio item using portfolio_id
-// $portfolio_id = $row['id'];
-
-// // Prepare the SQL query with DISTINCT to avoid duplicates
-// $stmt2 = $conn->prepare("
-//     SELECT DISTINCT t.name 
-//     FROM Technologies t
-//     INNER JOIN portfolio_technologies pt ON t.id = pt.technology_id
-//     WHERE pt.portfolio_id = ?
-// ");
-// $stmt2->bind_param("i", $portfolio_id);
-// $stmt2->execute();
-// $result2 = $stmt2->get_result();
-
-// // Store technologies in an array
-// $technologies = [];
-// while ($tech = $result2->fetch_assoc()) {
-//     $technologies[] = htmlspecialchars($tech['name']); // Escape for safety
-// }
-
-// // Display technologies in the table
-// echo "<td>";
-// foreach ($technologies as $technology) {
-//     echo $technology . "<br>"; // Display each technology on a new line
-// }
-// echo "</td>";
-
-// $stmt2->close();
-
 
               
             }
 
-            echo "</tbody></table>";
+            echo "</tbody></table></div></div>";
         } else {
           echo "<div class='alert alert-warning mt-3'>No data found</div>";
         }
@@ -159,7 +117,11 @@
         $conn->close();
       ?>
     </form>
+    
 
-    <?php require 'partials/bars/footer.php'; ?>
-  </body>
-</html>
+<div class="text-center">
+    <a href="admin_dashboard.php" class="btn btn-secondary">Back to admin dashboard</a>
+</div>
+<br>
+<?php require 'partials/bars/footer.php'; ?>
+  

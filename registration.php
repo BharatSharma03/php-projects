@@ -1,30 +1,30 @@
-<title>Registration</title>
+<?php 
+$title="Register";
+ require 'partials/bars/_nav.php';?>
 
-<body>
-    <?php require 'partials/bars/_nav.php';?>
-
-    <div class="container" >
-        <h1 class="text-center">Register to our website</h1>
+    <div class=" bg-light" style="width: auto; padding: 10px; border-radius: 10px; margin:40px auto ;">
+        <h1 class="text-center" style="padding:30px;">Register to our website</h1>
 
         <!-- Registration Form -->
-        <form action="" method="post">
-            <div class="mb-3">
+        <form action="" method="post" class="mx-auto p-3 border rounded" style="width: auto;">
+            <div class="m-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" placeholder="Enter your full name" required>
             </div>
-            <div class="mb-3">
+            <div class="m-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="mail" class="form-control" placeholder="name@example.com" required>
             </div>
-            <div class="mb-3">
+            <div class="m-3">
                 <label for="password1" class="form-label">Password</label>
                 <input type="password" name="password1" class="form-control" required>
             </div>
-            <div class="mb-3">
+            <div class="m-3">
                 <label for="password2" class="form-label">Confirm Password</label>
                 <input type="password" name="password2" class="form-control" required>
             </div>
-            <button type="submit" name="btn" value="set" class="btn btn-primary">Submit</button>
+            <div class="text-center"><button type="submit" name="btn" value="set" class="btn btn-primary">Submit</button></div><br>
+            
         </form>
         <?php
 
@@ -77,6 +77,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <?php require 'partials/bars/footer.php';?>   
-</body>
 
-</html>

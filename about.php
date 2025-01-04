@@ -1,10 +1,10 @@
-
-  <title>About Us</title>
-
-    <?php require 'partials/bars/_nav.php'; ?>
-
-    <div class="container mt-5">
+<?php 
+$title="About";
+require 'partials/bars/_nav.php'; ?>
+<div class="border rounded" style="width: autopx; margin:auto; border-radius:10px ;>">
+    <div class="container m-3" style="padding: 10px;">
       <h1 class="text-center">About Us</h1>
+      <hr>
       <p class="lead text-center">Welcome to our website. We are dedicated to providing excellent service and a seamless user experience.</p>
 
       <section>
@@ -23,6 +23,5 @@
         </ul>
       </section>
 
-    </div>
  
     <?php require 'partials/bars/footer.php'; ?>

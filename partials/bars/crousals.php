@@ -32,7 +32,7 @@ $items = $result->fetch_all(MYSQLI_ASSOC);
       width: 100%;
     }
   </style>
-<body>
+
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner" name="sldier">
       <?php 

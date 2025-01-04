@@ -38,8 +38,9 @@ if ($stmt) {
 
 $conn->close();
 ?>
- <?php require 'partials/bars/_nav.php';?>
- <title>Portfolio</title>
+ <?php 
+ $title = "Portfolio";
+ require 'partials/bars/_nav.php';?>
   <!-- Add Bootstrap CSS -->
   
  
