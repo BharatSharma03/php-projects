@@ -23,5 +23,6 @@ require 'partials/bars/_nav.php'; ?>
         </ul>
       </section>
 
- 
+</div>
+</div>
     <?php require 'partials/bars/footer.php'; ?>
